@@ -15,14 +15,14 @@ export class SignupComponent {
    email: string;
    password: string;
    repeatPassword: string;
-   adress: string;
+   address: string;
    phone: string;
 
    lastNameVerify: boolean;
    firstNameVerify: boolean;
    emailVerify: boolean;
    passwordVerify: boolean;
-   adressVerify: boolean;
+   addressVerify: boolean;
    phoneVerify: boolean;
    repeatPasswordVerify: boolean;
    completeInputs: boolean;
@@ -60,7 +60,7 @@ export class SignupComponent {
       }
 
       if (Utils.isNullOrEmpty(this.repeatPassword)) {
-        this.adressVerify = true;
+        this.addressVerify = true;
       }
 
       if (Utils.isNullOrEmpty(this.repeatPassword)) {
@@ -96,7 +96,7 @@ export class SignupComponent {
           lastName: this.lastName,
           email: this.email,
           password: this.password,
-          adress: this.adress,
+          address: this.address,
           phone: this.phone
       };
 
@@ -112,7 +112,7 @@ export class SignupComponent {
       this.emailVerify = false;
       this.passwordVerify = false;
       this.repeatPasswordVerify = false;
-      this.adressVerify = false;
+      this.addressVerify = false;
       this.phoneVerify = false;
       this.emailIsNotValide = false;
       this.passwordIsNotTheSame = false;

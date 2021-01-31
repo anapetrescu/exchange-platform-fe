@@ -1,0 +1,17 @@
+.product {
+    margin: 0 30px 20px;
+}
+.card-columns {
+   column-count: 4;
+}
+
+a {
+    background-color: grey;
+    color: white;
+    font-weight: bold;
+}
+
+.row-cards {
+    display: flex;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+<h1>Add a new product</h1>
+<h4>General information</h4>
+<div class="row form-group">
+    <div class="col-6">
+        <div class="row-4 input-group inputGroup">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Name</span>
+            </div>
+            <input type="text" class="form-control field" [(ngModel)]="product.name">
+        </div>
+        <div class="row-4 input-group inputGroup">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Type</span>
+            </div>
+            <select class="form-control field" style="width: 100px !important;"
+             [(ngModel)]="product.type" (ngModelChange)="typeChanged($event)">
+                <option>Other</option>
+                <option>Auto</option>
+                <option>Real Estate</option>
+              </select>
+        </div>
+        <div class="row-4 input-group inputGroup">
+            <div class="input-group-prepend">
+                <span class="input-group-text" style="height: 100px;">Address</span>
+            </div>
+            <textarea aria-label="With textarea" class="form-control field" 
+            rows="2" style="resize: none;" [(ngModel)]="product.address"></textarea>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="row-4 input-group inputGroup pr-4">
+            <div class="input-group-prepend">
+                <span class="input-group-text" style="height: 185px;">Description</span>
+            </div>
+            <textarea aria-label="With textarea" class="form-control field" 
+            rows="3" style="resize: none;" [(ngModel)]="product.description"></textarea>
+        </div>
+        <div class="row-4 input-group inputGroup">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Price</span>
+            </div>
+            <input type="text" class="form-control field" [(ngModel)]="product.price">
+        </div>
+    </div>
+</div>
+
+<h4>About</h4>
+<div *ngIf="product.type === 'Other'" class="row">
+    <div class="col-3 inputGroup" *ngFor="let feature of product.features; index as i">
+        <div class="input-group feature">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Feature name</span>
+            </div>
+            <input type="text" class="form-control field" [(ngModel)]="feature.key">
+        </div>
+        <div class="input-group feature">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Feature details</span>
+            </div>
+            <input type="text" class="form-control field" [(ngModel)]="feature.value">
+        </div>
+    </div>
+    <div class="col-3 plusOne" (click)="addFeature()"></div>
+</div>
+<div *ngIf="product.type !== 'Other'" class="row">
+    <div class="col-3 inputGroup" *ngFor="let feature of product.features">
+    <div class="row-4 input-group inputGroup">
+        <div class="input-group-prepend">
+            <span class="input-group-text">{{feature.key.toUpperCase()}}</span>
+        </div>
+        <input type="text" class="form-control field" [(ngModel)]="feature.value">
+    </div>
+</div>
+</div>
+<button class="btn addBtn" (click)="addProduct()">Add Product</button>

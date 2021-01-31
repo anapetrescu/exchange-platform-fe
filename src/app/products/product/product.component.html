@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+<div class="row">
+    <div class="col-6">
+        <img [src]="noImg">
+    </div>
+    <div class="col-6" style="padding: 100px 70px;">
+        <p><span>Name:</span> {{product.name}}</p>
+        <p><span>Type:</span> {{product.type}}</p>
+        <p><span>Description:</span> {{product.description}}</p>
+        <p><span>Seller:</span> {{product.seller.firstName}} {{product.seller.lastName}}</p>
+        <p><span>Address:</span> {{product.address}}</p>
+        <p><span>Price:</span> {{product.price}}</p>
+        <span style="font-size: larger">Details:</span>
+        <div *ngFor="let feature of product.features">
+            <p><span>{{feature.key.toUpperCase()}}:</span> {{feature.value}}</p>
+        </div>
+    </div>
+</div>
+

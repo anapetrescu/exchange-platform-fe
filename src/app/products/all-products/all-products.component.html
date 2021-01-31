@@ -1,0 +1,13 @@
+<app-navbar></app-navbar>
+<h1>All products available</h1>
+<div class="row-cards">
+    <div class="card product col-2" *ngFor="let product of products">
+        <img class="card-img-top" [src]="noImg">
+        <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">{{product.description}}</p>
+            <p class="card-text">Category: {{product.type}}</p>
+            <a routerLink="/product" [state]="product" class="btn">See product</a>
+        </div>
+    </div>
+</div>

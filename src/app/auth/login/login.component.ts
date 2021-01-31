@@ -38,8 +38,14 @@ export class LoginComponent implements OnInit {
         };
 
         this.authService.login(user).subscribe(
-            (token) => { this.resetFields(); this.router.navigate(['/exercises/reading']); },
-            (err) => { console.log(err);  this.invalide = true; }
+            (res) => {
+                localStorage.setItem("token", res.headers.get("authorization"))
+                localStorage.setItem("user_id", res.body.id)
+                this.resetFields(); 
+                this.router.navigate(['/products']); },
+            (err) => { 
+                console.log(err);  
+                this.invalide = true; }
 
         );
     }
