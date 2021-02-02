@@ -14,6 +14,7 @@ import { ProductComponent } from './products/product/product.component';
 import { NavbarComponent } from 'src/shared/navbar/navbar.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { AddProductComponent } from './products/add-product/add-product.component';
+import { EventsComponent } from './events/events.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { AddProductComponent } from './products/add-product/add-product.componen
     AllProductsComponent,
     ProductComponent,
     NavbarComponent,
-    AddProductComponent
+    AddProductComponent,
+    EventsComponent
   ],
   imports: [
     HttpClientModule,

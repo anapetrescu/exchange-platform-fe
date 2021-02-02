@@ -30,4 +30,9 @@ export class ProductsService {
     + type);
   }
 
+  getProductsFromRange(range):Observable<any> {
+    return this.httpClient.get("https://shielded-eyrie-39447.herokuapp.com/api/" +
+    "products/range?userAddress=" + localStorage.getItem("address") + "&range=" + range)
+  }
+
 }

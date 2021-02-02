@@ -1,5 +1,14 @@
 <app-navbar></app-navbar>
-<h1>All products available</h1>
+<div class="row" style="padding-bottom: 20px;">
+    <h1 class="col-8">All products available</h1>
+    <div class="row">
+        <h4 class="col-1">Set range:</h4>
+        <h4 class="col-1 range" (click)="plusRange()">+</h4>
+        <input class="col-1" style="height: 30px; margin-top: 30px;" 
+        [(ngModel)]="range" (ngModelChange)="onChange()">
+        <h4 class="col-1 range" (click)="minusRange()">-</h4>
+    </div>
+</div>
 <div class="row-cards">
     <div class="card product col-2" *ngFor="let product of products">
         <img class="card-img-top" [src]="noImg">
